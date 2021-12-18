@@ -1,0 +1,79 @@
+employee=[]
+def push() :
+    while True :
+        empno = input("enter employ number =    ")
+        if empno==" " :
+            continue
+        elif empno.isdigit() :
+            break
+        else :
+            print("enter valid employ number")
+            continue
+    while True:
+            empname = input("enter employ name =    ")
+            if empname == " ":
+                continue
+            elif empname.isdigit():
+                print("enter valid name")
+                continue
+            else:
+                break
+    while True:
+        salary = input("enter employ salary  =    ")
+        if salary==" ":
+            continue
+        elif salary.isdigit():
+            break
+        else:
+            print("enter valid salary")
+            continue
+    em=(empno,empname,salary)
+    employee.append(em)
+
+
+
+def pop() :
+    if employee==[] :
+        print("underflow or stack is empty")
+    else :
+        empno,empname,salary=employee.pop()
+        print(f"employ number is {empno},employee name is {empname},employee salary is {salary}")
+
+
+
+def traversal() :
+    n = len(employee)
+    if employee==[] :
+        print("stack is empty")
+    else :
+        for i in range(n-1,-1,-1) :
+            print(employee[i])
+def main() :
+    print("1. PUSH")
+    print("2.POP")
+    print("3.TRAVERSAL")
+    print("4.EXIT")
+
+    while True :
+        while True :
+            ch=input("enter your choice =   ")
+            if ch==" " :
+                continue
+            elif ch.isdigit() :
+                break
+            else :
+                print("enter valid choice")
+                continue
+        if ch=="1" :
+            push()
+        elif ch=="2" :
+            pop()
+        elif ch=="3" :
+            traversal()
+        elif ch=="4" :
+            print("exit")
+            break
+        else :
+            print("enter valid choice")
+if __name__=="__main__" :
+    main()
