@@ -1,0 +1,35 @@
+#Hybrid Inheritance
+class Company:
+    def GetCompany(self):
+        self.__name=input("Enter Company Name:")
+        self.__location=input("Enter Location:")
+    def ShowCompany(self):
+        print(self.__name,self.__location)
+
+class ProductionOne(Company):
+    def UnitOne(self):
+        self._totalone=int(input("Enter Total Production One:"))
+    def ShowUnitOne(self):
+        print("Production Unit One:",self._totalone)
+
+class ProductionTwo(Company):
+    def UnitTwo(self):
+        self._totaltwo=int(input("Enter Total Production Two:"))
+    def ShowUnitTwo(self):
+        print("Production Unit Two:",self._totaltwo)
+
+class TotalProduction(ProductionOne,ProductionTwo):
+    def Total(self):
+        self.GetCompany()
+        self.UnitOne()
+        self.UnitTwo()
+        self.__total=self._totalone+self._totaltwo
+    def ShowTotal(self):
+        self.ShowCompany()
+        self.ShowUnitOne()
+        self.ShowUnitTwo()
+        print("Net Production:",self.__total)
+
+T=TotalProduction()
+T.Total();
+T.ShowTotal()
