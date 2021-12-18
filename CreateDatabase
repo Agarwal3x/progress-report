@@ -1,0 +1,12 @@
+# Create Database
+import pymysql as sql
+try:
+ db=sql.connect(host="localhost",port=3306,user="root",passwd="123")
+ #db is an object which holds the reference of database Engine(Mysql)
+ cmd=db.cursor()
+ q="create database dominos"
+ cmd.execute(q)
+ print("Database Created")
+ db.close()
+except Exception as e:
+ print(e)
