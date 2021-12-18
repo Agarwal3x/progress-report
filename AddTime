@@ -1,0 +1,33 @@
+#program to convert add tho time slots and display result in days
+class Time:
+    def GetValues(self):
+        self.__h=int(input("Enter Hour:"))
+        self.__m = int(input("Enter Minitues:"))
+        self.__s = int(input("Enter Seconds:"))
+    def PutValues(self):
+        print(self.__h,":",self.__m,":",self.__s,sep='')
+    def Add(self,T):
+        R=Time()
+        R.__h=self.__h+T.__h
+        R.__m=self.__m + T.__m
+        R.__s= self.__s + T.__s
+
+        R.__m=R.__m+(R.__s//60)
+        R.__s=R.__s%60
+
+        R.__h=R.__h+(R.__m//60)
+        R.__m=R.__m%60
+
+        days=R.__h//24
+        print("Day(s):",days)
+        R.__h=R.__h%24
+        return R
+T1=Time()
+T2=Time()
+T1.GetValues()
+T2.GetValues()
+
+T1.PutValues()
+T2.PutValues()
+T3=T1.Add(T2)
+T3.PutValues()
