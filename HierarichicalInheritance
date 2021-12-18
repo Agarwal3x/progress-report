@@ -1,0 +1,37 @@
+# Hierarichal Inheritance
+class Student:
+    def GetStudent(self):
+        self.__rollno=input("Enter Roll Number:")
+        self.__name=input("Enter Name:")
+    def PutStudent(self):
+        print(self.__rollno,self.__name)
+
+class Bsc(Student):
+    def GetAcademic(self):
+      self.GetStudent()
+      self.__p=int(input("Enter Physics Marks:"))
+      self.__c = int(input("Enter Chemistry Marks:"))
+      self.__m = int(input("Enter Maths Marks:"))
+    def PutAcademic(self):
+      self.PutStudent()
+      print(self.__p,self.__c,self.__m)
+
+class Ba(Student):
+    def GetAcademic(self):
+      self.GetStudent()
+      self.__h=int(input("Enter History Marks:"))
+      self.__e = int(input("Enter Economics Marks:"))
+      self.__g = int(input("Enter Geography Marks:"))
+    def PutAcademic(self):
+      self.PutStudent()
+      print(self.__h,self.__e,self.__g)
+
+
+print("Bsc:")
+S=Bsc()
+S.GetAcademic()
+S.PutAcademic()
+print("BA")
+T=Ba()
+T.GetAcademic()
+T.PutAcademic()
