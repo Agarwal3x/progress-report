@@ -1,0 +1,30 @@
+# OOPS program for adding 2 balances
+class Bank:
+    __BANKBALANCE=0
+    def OpenAccount(self):
+        self.__acno=input("Enter Account Number:")
+        self.__name=input("Enter Name:")
+        self.__balance=int(input("Enter Balance:"))
+        Bank.__BANKBALANCE+=self.__balance
+        return self.__acno
+    def ShowAccount(self):
+        print(self.__acno,self.__name,self.__balance)
+    @classmethod
+    def ShowBankBalance(cls):
+        print("Bank Balance:",cls.__BANKBALANCE)
+
+    @staticmethod
+    def ShowBankBalance2():
+        print("Bank Balance:", Bank.__BANKBALANCE)
+
+
+C={}
+for i in range(3):
+    CUST=Bank()
+    acno=CUST.OpenAccount()
+    C.setdefault(acno,CUST)
+
+for c in C.values():
+    c.ShowAccount()
+
+Bank.ShowBankBalance()
